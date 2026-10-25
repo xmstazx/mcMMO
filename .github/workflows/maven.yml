@@ -50,3 +50,9 @@ jobs:
     # 4. Build via Maven 
     - name: Build via Maven
       run: mvn verify -B -Psql-tests --file pom.xml -DdisableXmlReport=true
+    - name: Upload mcMMO JAR
+      uses: actions/upload-artifact@v4
+      with:
+        name: mcMMO-build
+        path: target/*.jar
+        if-no-files-found: error
